@@ -1,5 +1,6 @@
 package br.edu.ifsp.poo.practical02;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
@@ -88,18 +89,21 @@ public class Principal {
     }
 
     private void atualizarDeclacoes() {
-        if(dao.lerTodos().isEmpty()){
+        final List<Declaracao> declaracoes = dao.lerTodos();
+        if(declaracoes.isEmpty()){
             System.out.println("Não há declarações para editar");
             return;
         }
-
         System.out.print("Ganho tributável: ");
         final double ganho = Double.parseDouble(scanner.nextLine());
         System.out.print("Valor já pago: ");
         final double valorPago = Double.parseDouble(scanner.nextLine());
 
-        dao.editar(new DeclaracaoCompleta(1, ganho, valorPago));
-        dao.editar(new DeclaracaoSimplificada(2, ganho, valorPago));
+        for (Declaracao declaracao : declaracoes) {
+            declaracao.setGastoTributavel(ganho);
+            declaracao.setValorPago(valorPago);
+            dao.editar(declaracao);
+        }
     }
 
     private void atualizarGasto() {
@@ -114,9 +118,8 @@ public class Principal {
             System.out.println("Não há gasto a editar");
             return;
         }
-
+        completa.removeGasto(id);
         final Gasto gasto = lerGastoDoConsole(id);
-        completa.removeGasto(gasto);
         completa.addGasto(gasto);
         dao.editar(completa);
     }

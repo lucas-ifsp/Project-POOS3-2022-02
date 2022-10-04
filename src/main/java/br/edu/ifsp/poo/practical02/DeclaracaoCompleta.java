@@ -50,8 +50,10 @@ public class DeclaracaoCompleta extends Declaracao{
     }
 
     public Gasto getGasto(int id){
-        if(id < 0 || id > gastos.size()) return null;
-        return gastos.get(id - 1);
+        for (Gasto gasto : gastos) {
+            if(gasto.getId() == id) return gasto;
+        }
+        return null;
     }
 
     public void removeGasto(Gasto gasto){
