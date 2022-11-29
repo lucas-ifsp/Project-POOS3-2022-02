@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="540.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsp.poo.practical03.controller.DeclaracaoController">
+   <children>
+       <Label layoutX="26.0" layoutY="28.0" text="Ganho Tributável (R$):" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="28.0" />
+       <TextField fx:id="txtGanhoTributavel" layoutX="157.0" layoutY="24.0" prefHeight="26.0" prefWidth="153.0" AnchorPane.leftAnchor="157.0" AnchorPane.topAnchor="24.0" />
+       <Label layoutX="321.0" layoutY="28.0" text="Valor Pago(R$): " AnchorPane.leftAnchor="321.0" AnchorPane.topAnchor="28.0" />
+       <TextField fx:id="txtValorPago" layoutX="418.0" layoutY="24.0" prefHeight="26.0" prefWidth="153.0" AnchorPane.leftAnchor="418.0" AnchorPane.topAnchor="24.0" />
+       <Button layoutX="593.0" layoutY="20.0" mnemonicParsing="false" onAction="#atualizarDeclaracoes" prefHeight="35.0" prefWidth="165.0" text="Calcular Imposto" />
+       <Button layoutX="505.0" layoutY="342.0" mnemonicParsing="false" onAction="#adicionarGasto" prefHeight="35.0" prefWidth="70.0" text="Novo" AnchorPane.bottomAnchor="23.0" AnchorPane.rightAnchor="25.0" />
+       <Button layoutX="341.0" layoutY="342.0" mnemonicParsing="false" onAction="#visualizarGasto" prefHeight="35.0" prefWidth="70.0" text="Detalhes" AnchorPane.bottomAnchor="23.0" AnchorPane.rightAnchor="189.0" />
+       <Button layoutX="423.0" layoutY="343.0" mnemonicParsing="false" onAction="#editarGasto" prefHeight="35.0" prefWidth="70.0" text="Editar" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="107.0" />
+       <Button layoutX="26.0" layoutY="342.0" mnemonicParsing="false" onAction="#removerGasto" prefHeight="35.0" prefWidth="70.0" text="Remover" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="26.0" />
+       <Label layoutX="25.0" layoutY="87.0" text="Gastos Dedutíveis:" />
+       <TableView fx:id="tabela" layoutX="26.0" layoutY="115.0" prefHeight="292.0" prefWidth="732.0" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="115.0">
+           <columns>
+               <TableColumn fx:id="cID" prefWidth="64.0" text="ID" />
+               <TableColumn fx:id="cDescricao" prefWidth="246.0" text="Descrição" />
+               <TableColumn fx:id="cValor" prefWidth="84.0" text="Valor" />
+               <TableColumn fx:id="cCnpj" prefWidth="70.0" text="CNPJ" />
+               <TableColumn fx:id="cInstituicaoRegistro" prefWidth="164.0" text="Instituição / Registro" />
+               <TableColumn fx:id="cTipo" prefWidth="103.0" text="Tipo" />
+           </columns>
+       </TableView>
+
+       <Label layoutX="24.0" layoutY="437.0" text="Valor a Pagar na Declaração Simplificada:     R$" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="24.0">
+           <font>
+               <Font name="System Bold" size="13.0" />
+           </font>
+       </Label>
+       <Label fx:id="lbPagarSimplificada" layoutX="251.0" layoutY="437.0" text="--" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="280.0">
+           <font>
+               <Font name="System Bold" size="13.0" />
+           </font>
+       </Label>
+
+       <Label layoutX="364.0" layoutY="437.0" text="Valor a Pagar na Declaração Completa:     R$" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="364.0">
+           <font>
+               <Font name="System Bold" size="13.0" />
+           </font>
+       </Label>
+       <Label fx:id="lbPagarCompleta" layoutX="575.0" layoutY="437.0" text="--" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="610.0">
+           <font>
+               <Font name="System Bold" size="13.0" />
+           </font>
+       </Label>
+
+   </children>
+</AnchorPane>
